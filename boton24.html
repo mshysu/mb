@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Producto</title>
+    <link rel="stylesheet" href="boton1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+              <li><a href="comedoress.html">Productos</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="product">
+    <div class="product-container">
+        <div class="product-image">
+            <img src="s6.jpeg" alt="Sala familiar de terciopelo" width="400">
+        </div>
+        <div class="product-info">
+         <h3>Comedor alto 4 sillas <br> Asientos de tela gris</h3>
+                <p>Diseñado especialmente para los más pequeños del hogar. Este comedor infantil es seguro, resistente y viene en colores vivos que hacen del momento de comer una experiencia divertida.</p>
+                <h2>$450 USD</h2>
+
+            <div class="buttons">
+                <button class="btn" onclick="comprarAhora()">Comprar ahora</button>
+                <button class="btn outline" onclick="agregarAlCarrito()">Añadir al carrito</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    const producto = {
+        nombre: "Comedor alto 4 sillas <br> Asientos de tela gris",
+        precio: 450,
+        imagen: "s6.jpeg"
+    };
+
+    function agregarAlCarrito() {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        carrito.push(producto);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        Swal.fire({
+            title: '🛒 ¡Producto añadido!',
+            html: `<b>${producto.nombre}</b><br>ha sido agregado al carrito.`,
+            imageUrl: producto.imagen,
+            imageWidth: 300,
+            imageHeight: 200,
+            imageAlt: 'Imagen del producto',
+            background: '#fefefe',
+            color: '#333',
+            confirmButtonColor: '#6c63ff',
+            confirmButtonText: 'Seguir explorando 🛍️',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            }
+        });
+    }
+
+    function comprarAhora() {
+        agregarAlCarrito();
+
+        Swal.fire({
+            title: '⏳ Preparando tu compra...',
+            html: 'Redirigiendo al <b>método de pago</b>...',
+            timer: 2200,
+            timerProgressBar: true,
+            background: '#fff8f0',
+            color: '#444',
+            icon: 'info',
+            showConfirmButton: false,
+            didOpen: () => {
+                Swal.showLoading();
+            },
+            willClose: () => {
+                window.location.href = "metodo.html";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

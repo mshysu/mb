@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmación de Pago</title>
+    <link rel="stylesheet" href="metodo.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="camas.html">Seguir comprando</a>
+    </nav>
+</header>
+
+<main class="form-container">
+    <h2>🎉 ¡Pago exitoso!</h2>
+    <p>Gracias por tu compra. Y por confiar en nosotros  en tus compras de muebles</p>
+
+    <div id="carrito-contenido" class="payment-section"></div>
+</main>
+
+<script>
+    // Recuperar el producto y método de pago desde localStorage
+    const producto = JSON.parse(localStorage.getItem("carrito"))?.slice(-1)[0]; // último producto añadido
+    const metodoPago = localStorage.getItem("metodoPago");
+
+    const resumenDiv = document.getElementById("resumen-compra");
+
+    if (producto) {
+        resumenDiv.innerHTML = `
+            <h3>🛏️ Producto: ${producto.nombre}</h3>
+            <p>💵 Precio: $${producto.precio} USD</p>
+            <p>💳 Método de pago: <strong>${metodoPago || "No especificado"}</strong></p>
+            <img src="${producto.imagen}" alt="Producto comprado" width="300">
+        `;
+
+        Swal.fire({
+            icon: 'success',
+            title: '¡Compra confirmada!',
+            text: 'Tu pago fue procesado correctamente.',
+            confirmButtonText: 'Ver resumen',
+            confirmButtonColor: '#3085d6'
+        });
+    } else {
+        resumenDiv.innerHTML = `<p>No se encontraron datos de compra.</p>`;
+    }
+</script>
+
+<footer>
+    <p>&copy; 2025 Mueblería Susy | Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>

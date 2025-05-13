@@ -1,0 +1,124 @@
+/* General */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color:white;
+  color:#7B3F00;
+}
+
+/* Navegación */
+.main-header {
+  background-color:#7B3F00;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: white;
+  font-size: 1.8rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: black; 
+}
+
+/* Título */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 2rem 0 1.5rem;
+  color: #3d332b;
+}
+
+/* Carrito */
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  background-color:white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.cart-item img {
+  width: 100px;
+  border-radius: 6px;
+}
+
+.item-details h3 {
+  margin: 0 0 0.5rem;
+}
+
+.item-details p {
+  margin: 0.2rem 0;
+}
+
+/* Total y botón */
+.cart-footer {
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.cart-total {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.btn-checkout {
+  background-color:#7B3F00;
+  border: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-checkout:hover {
+  background-color:black;
+}
+
+.btn-delete {
+  background-color: #7B3F00;
+  border: none;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-delete:hover {
+  background-color: black;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #8b8078;
+  margin-top: 2rem;
+}

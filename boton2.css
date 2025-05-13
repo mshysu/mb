@@ -1,0 +1,89 @@
+body{
+background-color:bisque;
+}
+
+BODY {color:whitesmoke;}
+td {color:sienna;
+font-size:80px;
+font-family:iskoola pota;
+font-style:inherit;
+line-height:120px;
+letter-spacing:90x;
+text-transform:capitalize;
+text-align:center;
+text-indent:110px;
+padding:70;
+border-color:maroon;
+}
+h2 {color:black;}
+header{
+background-color:rgb(205, 133,63);
+font-size: 0.8em;  
+
+}
+header .logo{
+margin: 10;
+padding: 30px 35px;
+color:whitesmoke;
+font-weight:bold;
+font-size: 5.0em;
+align-items:center;
+}
+
+header .conteiner{
+display: flex;
+flex-direction: column;
+align-items:right;
+}
+header nav{
+display:flex;
+text-align:right;
+
+}
+header a {
+padding:5px 10px;
+font-size:35px;
+color:SIENNA;
+}
+body{
+    font-family:;
+  }
+
+  button{
+  font-size:2.0em;
+  font-weight: bold;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border:1px;
+  color: white;
+  background-color:sienna;
+  display: center;
+  margin:5px 180px;
+   }
+  img {
+  max-width: 15x;
+  border-radius: 5px;
+  border:5px;
+  width: 350px;
+  height: 300px;
+  margin: 50px 100px;
+ 
+ }
+  .opcion{
+     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap:0 80px;
+    justify-content:center;
+     margin:5px 290px;
+  color:black;
+ }
+ .opcione{
+     display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap:0 80px;
+    justify-content:center;
+     margin:0px 290px;
+ color:black;
+ }
+
+ 

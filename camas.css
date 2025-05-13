@@ -1,0 +1,133 @@
+/* Reset y estilo base */
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f9f9f9;
+    color: #2e2e2e;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #7B3F00, #A0522D);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+header .inicio {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+header .inicio:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Galería de lujo */
+.gallery {
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 0 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.info {
+    flex: 1;
+}
+
+.info h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #7B3F00;
+}
+
+.info button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #7B3F00;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.info button:hover {
+    background-color: black;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .item:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .item img {
+        width: 100%;
+        max-width: 90vw;
+    }
+}
+footer {
+    background-color: #7B3F00;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}

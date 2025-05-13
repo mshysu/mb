@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tu Carrito</title>
+  <link rel="stylesheet" href="carrito.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <header class="main-header">
+    <nav class="navbar">
+      <div class="container">
+        <ul class="nav-links">
+         <center> <li><a href="susy23.html">Inicio</a></li> </center>
+         <center><li><a href="producto.html"></a></li></center>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="cart-section">
+    <div class="container">
+      <h2 class="section-title">Resumen de tu compra</h2>
+      <div id="carrito-contenido" class="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-total" id="total-carrito"></div>
+        <button class="btn-checkout" onclick="finalizarCompra()">Finalizar compra</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const contenedor = document.getElementById("carrito-contenido");
+    const totalCarrito = document.getElementById("total-carrito");
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function agruparProductos(carrito) {
+      const agrupado = {};
+      carrito.forEach(producto => {
+        const key = producto.nombre;
+        if (agrupado[key]) {
+          agrupado[key].cantidad += 1;
+        } else {
+          agrupado[key] = { ...producto, cantidad: 1 };
+        }
+      });
+      return Object.values(agrupado);
+    }
+
+    function renderizarCarrito() {
+      contenedor.innerHTML = "";
+      let total = 0;
+
+      if (carrito.length === 0) {
+        contenedor.innerHTML = "<p class='empty-message'>Tu carrito está vacío.</p>";
+        totalCarrito.innerHTML = "";
+        document.querySelector(".btn-checkout").style.display = "none";
+        return;
+      }
+
+      const productosAgrupados = agruparProductos(carrito);
+
+      productosAgrupados.forEach(producto => {
+        const item = document.createElement("div");
+        item.classList.add("cart-item");
+        item.innerHTML = `
+          <img src="${producto.imagen}" alt="${producto.nombre}">
+          <div class="item-details">
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio} USD</p>
+            <p>Cantidad: ${producto.cantidad}</p>
+            <p><strong>Subtotal: $${(producto.precio * producto.cantidad).toFixed(2)} USD</strong></p>
+            <button class="btn-delete" onclick="eliminarProducto('${producto.nombre}')">Eliminar</button>
+          </div>
+        `;
+        contenedor.appendChild(item);
+        total += producto.precio * producto.cantidad;
+      });
+
+      totalCarrito.innerHTML = `Total a pagar: <strong>$${total.toFixed(2)} USD</strong>`;
+      document.querySelector(".btn-checkout").style.display = "inline-block";
+    }
+
+    function eliminarProducto(nombre) {
+      carrito = carrito.filter(producto => producto.nombre !== nombre);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      renderizarCarrito();
+    }
+
+    function finalizarCompra() {
+      localStorage.removeItem("carrito");
+      window.location.href = "metodo.html";
+    }
+
+    renderizarCarrito();
+  </script>
+
+</body>
+</html>

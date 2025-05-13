@@ -1,0 +1,182 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía general */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #fefefe;
+    color: #333;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #7B3F00;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 2.6rem;
+    font-weight: bold;
+}
+
+.slogan {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: black;
+}
+
+/* Productos */
+.carousel {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.carousel h2 {
+    margin-bottom: 30px;
+    color: #7B3F00;
+}
+.carousel-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.carousel-item h3 {
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Botón */
+.btn {
+    display: inline-block;
+    background-color: #7B3F00;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: black;
+}
+.contact,
+.location {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.contact h2,
+.location h2 {
+    margin-bottom: 15px;
+    color: #7B3F00;
+}
+
+/* Footer */
+footer {
+    background-color: #7B3F00;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9rem;
+}
+
+
+/* Carrusel */
+.carousel {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.carousel h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.carousel-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.carousel-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    width: 220px;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+    transform: translateY(-5px);
+}
+
+.carousel-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.btn-producto {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #7B3F00;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.btn-producto:hover {
+    background-color: black;
+}
+.logo-derecha{
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  height: 150px; /* Ajusta el tamaño del logo según necesites */
+  border-radius: 10em;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Método de Pago</title>
+    <link rel="stylesheet" href="metodo.css">
+    <script>
+        function mostrarFormularioPago() {
+            const metodo = document.getElementById("metodo-pago").value;
+            document.getElementById("form-tarjeta").style.display = (metodo === "credito" || metodo === "debito") ? "block" : "none";
+            document.getElementById("form-paypal").style.display = (metodo === "paypal") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="index.html">Inicio</a>
+        <a href="carrito.html">Carrito</a>
+    </nav>
+</header>
+
+<main>
+    <div class="form-container">
+        <form onsubmit="guardarMetodoPago('credito')" action="confirmacion.html" method="GET">
+        <h2>Selecciona el método de pago</h2>
+
+        <label for="metodo-pago">Método de pago:</label>
+        <select id="metodo-pago" onchange="mostrarFormularioPago()">
+            <option value=""> Selecciona uno metodo de pago</option>
+            <option value="credito">Tarjeta de Crédito</option>
+            <option value="debito">Tarjeta de Débito</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <!-- Formulario para tarjeta -->
+        <div id="form-tarjeta" class="payment-section">
+             <form onsubmit="guardarMetodoPago('credito')" action="confirmacion.html" method="GET">
+                <label for="nombre">Nombre del titular:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="numero">Número de tarjeta:</label>
+                <input type="text" id="numero" name="numero" maxlength="16" required>
+
+                <label for="vencimiento">Fecha de vencimiento:</label>
+                <input type="month" id="vencimiento" name="vencimiento" required>
+
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" maxlength="4" required>
+
+                <input type="submit" value="Pagar con Tarjeta">
+            </form>
+        </div>
+
+        <!-- Formulario para PayPal -->
+        <div id="form-paypal" class="payment-section">
+<form onsubmit="guardarMetodoPago('paypal')" action="confirmacion.html" method="GET">
+                <label for="correo-paypal">Correo de PayPal:</label>
+                <input type="email" id="correo-paypal" name="correo_paypal" required>
+
+                <input type="submit" value="Pagar con PayPal">
+            </form>
+        </div>
+    </div>
+</main>
+ <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+
+
+
+<footer>
+        <p>&copy; 2025 Mueblería Susy | Todos los derechos reservados</p>
+    </footer>
+
+</body>
+</html>
