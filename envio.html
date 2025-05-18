@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tipo de Envío</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color:#7B3F00;
+      padding: 20px 30px;
+      text-align: center;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      text-align: center;
+    }
+
+    .navbar a:hover {
+color:black;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px;
+      box-sizing: border-box;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    input[type="submit"] {
+      background-color: #7B3F00;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color:black;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f1f1f1;
+      margin-top: 40px;
+    }
+  </style>
+
+  <script>
+    function mostrarFormularioEnvio() {
+      const tipo = document.getElementById("tipo-envio").value;
+      const formulario = document.getElementById("datos-envio");
+      formulario.classList.toggle("hidden", tipo !== "envio");
+    }
+
+    function continuar() {
+      const tipo = document.getElementById("tipo-envio").value;
+
+      if (!tipo) {
+        alert("Por favor selecciona un tipo de envío.");
+        return false;
+      }
+
+      if (tipo === "envio") {
+        const nombre = document.getElementById("nombre").value.trim();
+        const direccion = document.getElementById("direccion").value.trim();
+        const telefono = document.getElementById("telefono").value.trim();
+
+        if (!nombre || !direccion || !telefono) {
+          alert("Por favor completa todos los campos de envío.");
+          return false;
+        }
+
+        // Guardar en localStorage (opcional)
+        localStorage.setItem("envioDatos", JSON.stringify({ nombre, direccion, telefono }));
+      }
+
+      // Guardar tipo de envío
+      localStorage.setItem("tipoEnvio", tipo);
+
+      // Redirigir
+      window.location.href = "confirmacion.html";
+      return false;
+    }
+  </script>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html">Inicio</a>
+      <a href="producto.html">Productos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <h2>Selecciona el tipo de envío</h2>
+
+      <label for="tipo-envio">Tipo de envío:</label>
+      <select id="tipo-envio" onchange="mostrarFormularioEnvio()">
+        <option value="">Selecciona una opción</option>
+        <option value="envio">Envío a domicilio</option>
+        <option value="tienda">Recoger en tienda</option>
+      </select>
+
+      <div id="datos-envio" class="hidden">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" />
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" />
+      </div>
+
+      <input type="submit" value="Continuar" onclick="return continuar()" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mueblería Susy | Todos los derechos reservados</p>
+  </footer>
+
+</body>
+</html>

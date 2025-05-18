@@ -173,10 +173,19 @@ footer {
 .btn-producto:hover {
     background-color: black;
 }
-.logo-derecha{
+.logo-derecha {
   position: absolute;
   top: 10px;
   right: 20px;
-  height: 150px; /* Ajusta el tamaño del logo según necesites */
+  max-width: 15vw; /* Se ajusta al ancho de la pantalla */
+  height: auto;     /* Mantiene la proporción */
   border-radius: 10em;
 }
+
+/* Opcional: Limita tamaño en pantallas muy pequeñas */
+@media (max-width: 490px) {
+  .logo-derecha {
+    max-width: 50vw;
+  }
+}
+
